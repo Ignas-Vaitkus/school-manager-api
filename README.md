@@ -1,5 +1,7 @@
 ## How to run
 
+-   Clone the repository
+
 -   Run the following commands
 
 ```
@@ -8,4 +10,4 @@ php artisan migrate:refresh --seed
 php artisan serve
 ```
 
--   Then run the (frontend)[https://github.com/Ignas-Vaitkus/school-manager-frontend].
+-   Then run the [frontend](https://github.com/Ignas-Vaitkus/school-manager-frontend).
