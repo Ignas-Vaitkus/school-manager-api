@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('schools', function (Blueprint $table) {
-            $table->bigInteger('code');
-            $table->string('name');
-            $table->string('address');
-            $table->timestamps();
-            $table->primary('code');
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreignId('role_id')->nullable()->default(2)
+                ->references('id')->on('roles')
+                ->nullOnDelete();
         });
     }
 
@@ -29,6 +27,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('schools');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign(['role_id']);
+            $table->dropColumn('role_id');
+        });
     }
 };
